@@ -1,8 +1,8 @@
 {
-  "name": "music",
-  "short_name": "music",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "name": "Retro Music 2",
+  "short_name": "Retro Music 2",
+  "theme_color": "#000",
+  "background_color": "#000",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
