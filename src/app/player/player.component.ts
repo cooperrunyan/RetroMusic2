@@ -15,27 +15,42 @@ export class PlayerComponent {
   volume: number = 100;
   showVolume: boolean = false;
   showVolumeTimeout: ReturnType<typeof setTimeout> | null = null;
+  loop: boolean;
 
   constructor(private player: PlayerService, private channel: ChannelService) {
-    this.interval = setInterval(this.saveProgress(channel), 1000);
+    this.interval = setInterval(this.saveProgress, 1000);
+    this.loop = player._loop;
   }
 
   get videoLink() {
     return channels[this.channel.current];
   }
 
+  onEnd() {
+    console.log('end');
+    if (localStorage.getItem('loop') !== 'true') this.channel.next();
+  }
+
   ngOnInit() {
     if (!localStorage.getItem('power')) this.player.power();
+    if (!localStorage.getItem('loop')) localStorage.setItem('loop', 'false');
 
-    this.setProgress(this.channel.current);
+    this.setProgress();
 
     this.channel.onChange(() => (this.playing = true));
+    this.channel.onChange(() => this.setProgress());
 
-    this.channel.onChange(() => {
-      this.setProgress(Number(localStorage.getItem(channels[this.channel.current])));
-    });
+    this.player.onloop(loop => (this.loop = loop));
 
     ////////
+
+    this.player.onFastforward(() => {
+      (document.querySelector('video.player')! as HTMLVideoElement).currentTime += 5;
+    });
+
+    this.player.onRewind(() => {
+      (document.querySelector('video.player')! as HTMLVideoElement).currentTime -= 5;
+    });
 
     this.player.onPower(() => this.player.pause());
 
@@ -95,12 +110,15 @@ export class PlayerComponent {
     window.addEventListener('keydown', e => {
       if (e.key === 'ArrowUp') this.channel.next();
       if (e.key === 'ArrowDown') this.channel.previous();
+      if (e.key === 'ArrowRight') this.player.fastforward();
+      if (e.key === 'ArrowLeft') this.player.rewind();
     });
 
     window.addEventListener('keydown', e => {
       if (e.key === 'm') this.player.mute();
       if (e.key === '=') this.player.volUp();
       if (e.key === '-') this.player.volDown();
+      if (e.key === 'l') this.player.loop();
     });
 
     window.addEventListener('keydown', e => {
@@ -113,14 +131,12 @@ export class PlayerComponent {
     });
   }
 
-  saveProgress(channel: ChannelService) {
-    return () => {
-      localStorage.setItem(channels[channel.current], String((document.querySelector('video.player') as HTMLVideoElement)?.currentTime || 0));
-    };
+  saveProgress() {
+    localStorage.setItem('progress', String((document.querySelector('video.player') as HTMLVideoElement)?.currentTime || 0));
   }
 
-  setProgress(current: number) {
-    const duration = localStorage.getItem(channels[current]);
+  setProgress() {
+    const duration = localStorage.getItem('progress');
     if (!duration || !+duration) return;
     (document.querySelector('video.player')! as HTMLVideoElement).currentTime = +duration;
   }

@@ -39,7 +39,8 @@ video {
   }
 }
 
-.muted {
+.muted,
+.loop {
   color: white;
   font-family: 'Inter', sans-serif;
   font-size: 1.8rem;
@@ -57,4 +58,8 @@ video {
   padding: 0.6rem;
   user-select: none;
   pointer-events: none;
+}
+
+.loop {
+  z-index: 99997;
 }

@@ -42,6 +42,18 @@ export class RemoteComponent {
     this.player.power();
   }
 
+  fastforward() {
+    this.player.fastforward();
+  }
+
+  rewind() {
+    this.player.rewind();
+  }
+
+  loop() {
+    this.player.loop();
+  }
+
   setChannel(number: number) {
     this.channel.current = number;
   }

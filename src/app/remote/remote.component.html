@@ -35,10 +35,10 @@
         </svg>
       </div>
       <div tabindex="-1" class="button square f5" disabled>0</div>
-      <div tabindex="-1" class="button square f4" disabled>OK</div>
+      <div tabindex="-1" class="button square f2" (click)="loop()">Loop</div>
       <div tabindex="-1" class="button square f1" (click)="volumeDown()">VOL -</div>
 
-      <div tabindex="-1" class="button circle rewind" disabled>
+      <div tabindex="-1" class="button circle rewind" (click)="rewind()">
         <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M12.7679 7.38968V18.6123C12.7679 19.2867 12.1078 19.7153 11.568 19.3918L1.97691 13.65C1.5077 13.3692 1.5077 12.6308 1.97691 12.35L11.568 6.61171C12.1083 6.28671 12.7679 6.71531 12.7679 7.38968Z"
@@ -73,7 +73,7 @@
           />
         </svg>
       </div>
-      <div tabindex="-1" class="button circle forward" disabled>
+      <div tabindex="-1" class="button circle forward" (click)="fastforward()">
         <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M13.2321 7.38968V18.6123C13.2321 19.2867 13.8922 19.7153 14.432 19.3918L24.0231 13.65C24.4923 13.3692 24.4923 12.6308 24.0231 12.35L14.432 6.61171C13.8917 6.28671 13.2321 6.71531 13.2321 7.38968Z"

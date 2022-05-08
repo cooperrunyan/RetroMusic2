@@ -12,14 +12,32 @@ export class PlayerService {
   private volUpSubject: Subject<boolean> = new Subject();
   private stopSubject: Subject<boolean> = new Subject();
   private powerSubject: Subject<boolean> = new Subject();
+  private rewindSubject: Subject<boolean> = new Subject();
+  private fastforwardSubject: Subject<boolean> = new Subject();
+  private loopSubject: Subject<boolean> = new Subject();
 
   public _power: boolean = localStorage.getItem('power') === 'true';
+  public _loop: boolean = localStorage.getItem('loop') === 'true';
 
   play() {
     this.playSubject.next(true);
   }
   onPlay(callback: () => unknown) {
     this.playSubject.subscribe(callback);
+  }
+
+  fastforward() {
+    this.fastforwardSubject.next(true);
+  }
+  onFastforward(callback: () => unknown) {
+    this.fastforwardSubject.subscribe(callback);
+  }
+
+  rewind() {
+    this.rewindSubject.next(true);
+  }
+  onRewind(callback: () => unknown) {
+    this.rewindSubject.subscribe(callback);
   }
 
   power() {
@@ -29,6 +47,15 @@ export class PlayerService {
   }
   onPower(callback: (power: boolean) => unknown) {
     this.powerSubject.subscribe(callback);
+  }
+
+  loop() {
+    this._loop = !this._loop;
+    localStorage.setItem('loop', String(this._loop));
+    this.loopSubject.next(this._loop);
+  }
+  onloop(callback: (loop: boolean) => unknown) {
+    this.loopSubject.subscribe(callback);
   }
 
   pause() {
@@ -73,5 +100,8 @@ export class PlayerService {
     this.volDownSubject.unsubscribe();
     this.volUpSubject.unsubscribe();
     this.stopSubject.unsubscribe();
+    this.rewindSubject.unsubscribe();
+    this.fastforwardSubject.unsubscribe();
+    this.loopSubject.unsubscribe();
   }
 }

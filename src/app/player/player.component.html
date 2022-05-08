@@ -1,6 +1,7 @@
 <div class="player-container">
   <app-scan-lines [power]="playing"></app-scan-lines>
   <div *ngIf="muted" class="muted">Muted</div>
+  <div *ngIf="loop" class="loop">Loop</div>
   <div *ngIf="showVolume && !muted" class="volume">
     volume
     <div>
@@ -9,12 +10,13 @@
     </div>
   </div>
   <video
+    (ended)="onEnd()"
+    [loop]="loop"
     autoplay
     [muted]="muted"
     [volume]="volume / 100"
     [controls]="false"
     controlsList="nodownload"
-    loop
     preload="auto"
     class="player"
     [src]="'/assets/videos/' + videoLink"
