@@ -25,6 +25,9 @@ export class PlayerComponent {
   }
 
   ngOnInit() {
+    if (!localStorage.getItem('power')) localStorage.setItem('power', 'true');
+    this.player._power = localStorage.getItem('power') === 'true';
+
     this.setProgress(this.channel.current);
 
     this.channel.onChange(() => (this.playing = true));

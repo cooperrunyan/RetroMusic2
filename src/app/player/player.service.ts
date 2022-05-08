@@ -13,12 +13,7 @@ export class PlayerService {
   private stopSubject: Subject<boolean> = new Subject();
   private powerSubject: Subject<boolean> = new Subject();
 
-  public _power: boolean = false;
-
-  ngOnInit() {
-    if (!localStorage.getItem('power')) localStorage.setItem('power', 'true');
-    this._power = localStorage.getItem('power') === 'true';
-  }
+  public _power: boolean = localStorage.getItem('power') === 'true';
 
   play() {
     this.playSubject.next(true);
