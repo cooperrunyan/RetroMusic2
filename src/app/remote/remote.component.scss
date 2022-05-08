@@ -1,0 +1,124 @@
+.remote-container {
+  box-sizing: content-box;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+  width: 31.8rem;
+  height: 55.8rem;
+  padding: 3.2rem;
+  padding-inline: 6.4rem;
+
+  .hover-area {
+    height: 9.6rem;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+
+    &:hover {
+      .remote {
+        transform: translateX(-50%) translateY(0);
+      }
+    }
+  }
+}
+
+.remote {
+  box-sizing: border-box;
+  bottom: 3.2rem;
+  left: 50%;
+  position: absolute;
+  padding: 6.4rem 2rem;
+  background-color: #2f2f2f;
+  z-index: 100000;
+  font-weight: 700;
+  transition: transform 0.2s linear;
+  transform: translateX(-50%) translateY(100%);
+
+  box-shadow: inset 0rem -0.4rem 1.5rem rgba(0, 0, 0, 0.42), inset 0rem 0.4rem 1.4rem rgba(255, 255, 255, 0.16), inset -0.3rem 0rem 2rem rgba(0, 0, 0, 0.25),
+    inset 0.3rem 0rem 2rem rgba(0, 0, 0, 0.25);
+  border-radius: 1.8rem;
+
+  display: grid;
+  grid-template-columns: repeat(4, 5.6rem);
+  grid-template-rows: repeat(6, 5.6rem);
+  gap: 1.8rem;
+
+  .button {
+    text-transform: uppercase;
+    color: #eeeeee;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    user-select: none;
+    background: #1c1c1c;
+    border: 0.1rem solid rgba(146, 146, 146, 0.15);
+    box-shadow: 0rem 0.4rem 0.9rem rgba(0, 0, 0, 0.25);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+
+    &:disabled,
+    &[disabled] {
+      cursor: not-allowed;
+    }
+
+    &:focus {
+      outline: 0;
+    }
+
+    &.square {
+      border-radius: 0.8rem;
+    }
+
+    &.circle {
+      border-radius: 100%;
+    }
+
+    &.power {
+      background-color: #8d3a3a;
+    }
+  }
+}
+
+.light {
+  position: absolute;
+  width: 0.6rem;
+  height: 0.6rem;
+  left: 4.1rem;
+  top: 1.3rem;
+  border-radius: 100%;
+
+  background: #c04d4d;
+}
+
+.f {
+  &1 {
+    font-size: 14.63px;
+  }
+
+  &2 {
+    font-size: 15.17px;
+  }
+
+  &3 {
+    font-size: 20.36px;
+  }
+
+  &4 {
+    font-size: 21.65px;
+  }
+
+  &5 {
+    font-size: 46.15px;
+  }
+}
+
+.directional {
+  grid-row: -3 / -1;
+  grid-column: 2 / 4;
+}

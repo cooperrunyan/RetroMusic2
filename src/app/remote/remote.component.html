@@ -1,0 +1,113 @@
+<div class="remote-container">
+  <div class="hover-area">
+    <div class="remote">
+      <div class="light"></div>
+
+      <div tabindex="-1" class="button square f2" disabled>Back</div>
+      <div tabindex="-1" class="button square f2" disabled>Menu</div>
+      <div tabindex="-1" class="button square f3" (click)="mute()">Mut</div>
+      <div tabindex="-1" class="button square power" (click)="power()">
+        <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M19.9336 6.76111C21.0878 7.70807 22.0175 8.89927 22.6558 10.2489C23.2942 11.5985 23.6252 13.0729 23.625 14.5658C23.625 20.1556 19.0898 24.6908 13.5 24.6908C7.91015 24.6908 3.37499 20.1556 3.37499 14.5658C3.37056 13.0774 3.69434 11.6063 4.32326 10.2573C4.95218 8.90835 5.87079 7.7146 7.01366 6.76111M13.5 2.48685V13.1447"
+            stroke="#EEEEEE"
+            stroke-width="3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </div>
+      <div tabindex="-1" class="button square f5" (click)="setChannel(0)">1</div>
+      <div tabindex="-1" class="button square f5" (click)="setChannel(1)">2</div>
+      <div tabindex="-1" class="button square f5" (click)="setChannel(2)">3</div>
+      <div tabindex="-1" class="button square f1" (click)="channelUp()">CH +</div>
+      <div tabindex="-1" class="button square f5" (click)="setChannel(3)">4</div>
+      <div tabindex="-1" class="button square f5" (click)="setChannel(4)">5</div>
+      <div tabindex="-1" class="button square f5" (click)="setChannel(5)">6</div>
+      <div tabindex="-1" class="button square f1" (click)="channelDown()">CH -</div>
+      <div tabindex="-1" class="button square f5" (click)="setChannel(6)">7</div>
+      <div tabindex="-1" class="button square f5" (click)="setChannel(7)">8</div>
+      <div tabindex="-1" class="button square f5" (click)="setChannel(8)">9</div>
+      <div tabindex="-1" class="button square f1" (click)="volumeUp()">VOL +</div>
+      <div tabindex="-1" class="button circle stop" disabled>
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="18" height="18" rx="1" fill="#B44F4F" />
+        </svg>
+      </div>
+      <div tabindex="-1" class="button square f5" disabled>0</div>
+      <div tabindex="-1" class="button square f4" disabled>OK</div>
+      <div tabindex="-1" class="button square f1" (click)="volumeDown()">VOL -</div>
+
+      <div tabindex="-1" class="button circle rewind" disabled>
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M12.7679 7.38968V18.6123C12.7679 19.2867 12.1078 19.7153 11.568 19.3918L1.97691 13.65C1.5077 13.3692 1.5077 12.6308 1.97691 12.35L11.568 6.61171C12.1083 6.28671 12.7679 6.71531 12.7679 7.38968Z"
+            fill="#D1D1D1"
+          />
+          <path
+            d="M24.375 7.38968V18.6123C24.375 19.2867 23.7148 19.7153 23.175 19.3918L13.584 13.65C13.1148 13.3692 13.1148 12.6308 13.584 12.35L23.175 6.61171C23.7148 6.28671 24.375 6.71531 24.375 7.38968Z"
+            fill="#D1D1D1"
+          />
+          <path
+            d="M12.7679 7.38968V18.6123C12.7679 19.2867 12.1078 19.7153 11.568 19.3918L1.97691 13.65C1.5077 13.3692 1.5077 12.6308 1.97691 12.35L11.568 6.61171C12.1083 6.28671 12.7679 6.71531 12.7679 7.38968Z"
+            stroke="#D1D1D1"
+            stroke-width="1.625"
+            stroke-miterlimit="10"
+          />
+          <path
+            d="M24.375 7.38968V18.6123C24.375 19.2867 23.7148 19.7153 23.175 19.3918L13.584 13.65C13.1148 13.3692 13.1148 12.6308 13.584 12.35L23.175 6.61171C23.7148 6.28671 24.375 6.71531 24.375 7.38968Z"
+            stroke="#D1D1D1"
+            stroke-width="1.625"
+            stroke-miterlimit="10"
+          />
+        </svg>
+      </div>
+      <div tabindex="-1" class="button circle" (click)="play()">
+        <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M5.46876 5.41993V19.5801C5.46876 20.4317 6.29884 20.9727 6.98243 20.5645L19.0869 13.3198C19.6787 12.9658 19.6787 12.0342 19.0869 11.6802L6.98243 4.43555C6.29884 4.02735 5.46876 4.56837 5.46876 5.41993Z"
+            fill="#4F9D5C"
+            stroke="#4F9D5C"
+            stroke-width="1.5625"
+            stroke-miterlimit="10"
+          />
+        </svg>
+      </div>
+      <div tabindex="-1" class="button circle forward" disabled>
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M13.2321 7.38968V18.6123C13.2321 19.2867 13.8922 19.7153 14.432 19.3918L24.0231 13.65C24.4923 13.3692 24.4923 12.6308 24.0231 12.35L14.432 6.61171C13.8917 6.28671 13.2321 6.71531 13.2321 7.38968Z"
+            fill="#D1D1D1"
+          />
+          <path
+            d="M1.625 7.38968V18.6123C1.625 19.2867 2.28516 19.7153 2.82496 19.3918L12.416 13.65C12.8852 13.3692 12.8852 12.6308 12.416 12.35L2.82496 6.61171C2.28516 6.28671 1.625 6.71531 1.625 7.38968Z"
+            fill="#D1D1D1"
+          />
+          <path
+            d="M13.2321 7.38968V18.6123C13.2321 19.2867 13.8922 19.7153 14.432 19.3918L24.0231 13.65C24.4923 13.3692 24.4923 12.6308 24.0231 12.35L14.432 6.61171C13.8917 6.28671 13.2321 6.71531 13.2321 7.38968Z"
+            stroke="#D1D1D1"
+            stroke-width="1.625"
+            stroke-miterlimit="10"
+          />
+          <path
+            d="M1.625 7.38968V18.6123C1.625 19.2867 2.28516 19.7153 2.82496 19.3918L12.416 13.65C12.8852 13.3692 12.8852 12.6308 12.416 12.35L2.82496 6.61171C2.28516 6.28671 1.625 6.71531 1.625 7.38968Z"
+            stroke="#D1D1D1"
+            stroke-width="1.625"
+            stroke-miterlimit="10"
+          />
+        </svg>
+      </div>
+      <div tabindex="-1" class="button circle" (click)="pause()">
+        <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M11.6875 6.375H12.75V27.625H11.6875V6.375ZM21.25 6.375H22.3125V27.625H21.25V6.375Z"
+            stroke="#4D76A7"
+            stroke-width="2.125"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>

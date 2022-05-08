@@ -1,0 +1,59 @@
+.power-blocker {
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  pointer-events: none;
+
+  .white {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background-color: white;
+    transform: translate(-50%, -50%);
+
+    animation: off 1s ease-in-out both;
+  }
+}
+
+@keyframes off {
+  0% {
+    width: 100%;
+    height: 100%;
+  }
+
+  50% {
+    width: 100%;
+    height: 2px;
+  }
+
+  99% {
+    width: 2px;
+    height: 2px;
+  }
+
+  100% {
+    width: 0%;
+    height: 0%;
+  }
+}
+
+.noanimation {
+  &,
+  & * {
+    -webkit-animation: none !important;
+    -moz-animation: none !important;
+    -o-animation: none !important;
+    animation: none !important;
+  }
+
+  .white {
+    width: 0;
+    height: 0;
+  }
+}

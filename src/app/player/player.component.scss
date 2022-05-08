@@ -1,0 +1,60 @@
+video {
+  max-width: 100vw;
+  height: 100vh;
+  width: 100%;
+  background-color: #000;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.volume {
+  color: white;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  z-index: 99998;
+  position: absolute;
+  bottom: 0.4rem;
+  left: 0.4rem;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  background-color: #222222b4;
+  padding: 0.6rem;
+  user-select: none;
+  pointer-events: none;
+
+  span {
+    font-size: 2rem;
+  }
+
+  .active {
+    background-color: #eee;
+  }
+  .inactive {
+    background-color: black;
+  }
+}
+
+.muted {
+  color: white;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  z-index: 99998;
+  position: absolute;
+  bottom: 0.4rem;
+  left: 0.4rem;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  background-color: #222222b4;
+  padding: 0.6rem;
+  user-select: none;
+  pointer-events: none;
+}

@@ -1,0 +1,22 @@
+<div class="player-container">
+  <app-scan-lines [power]="playing"></app-scan-lines>
+  <div *ngIf="muted" class="muted">Muted</div>
+  <div *ngIf="showVolume && !muted" class="volume">
+    volume
+    <div>
+      <span class="active" *ngFor="let i of range(volume / 10)">&nbsp;&nbsp;&nbsp;</span>
+      <span class="inactive" *ngFor="let i of range(10 - volume / 10)">&nbsp;&nbsp;&nbsp;</span>
+    </div>
+  </div>
+  <video
+    autoplay
+    [muted]="muted"
+    [volume]="volume / 100"
+    [controls]="false"
+    controlsList="nodownload"
+    loop
+    preload="auto"
+    class="player"
+    [src]="'/assets/videos/' + videoLink"
+  ></video>
+</div>
