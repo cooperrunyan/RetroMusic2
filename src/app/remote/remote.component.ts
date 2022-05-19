@@ -8,7 +8,15 @@ import { PlayerService } from '../player/player.service';
   styleUrls: ['./remote.component.scss'],
 })
 export class RemoteComponent {
-  constructor(private channel: ChannelService, private player: PlayerService) {}
+  private i: ReturnType<typeof setInterval>;
+
+  constructor(private channel: ChannelService, private player: PlayerService) {
+    this.i = setInterval(() => document?.querySelector('.light')?.classList.toggle('off'), 500);
+  }
+
+  ngOnDestroy() {
+    clearInterval(this.i);
+  }
 
   channelUp() {
     this.channel.next();

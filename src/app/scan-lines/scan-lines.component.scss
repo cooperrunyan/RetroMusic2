@@ -1,10 +1,10 @@
-$scan-width: 5px;
+$scan-width: 7.5px;
 $scan-crt: true;
-$scan-fps: 60;
-$scan-color: rgba(#000, 0.3);
+$scan-fps: 100;
+$scan-color: rgba(rgb(18, 22, 17), 0.3);
 $scan-z-index: 2147483648;
 $scan-moving-line: true;
-$scan-opacity: 0.75;
+$scan-opacity: 0.5;
 
 @mixin scan-crt($scan-crt) {
   @if $scan-crt == true {

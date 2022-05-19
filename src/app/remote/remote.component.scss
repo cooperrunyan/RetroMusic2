@@ -93,7 +93,15 @@
   top: 1.3rem;
   border-radius: 100%;
 
-  background: #c04d4d;
+  color: #d74646;
+  background: currentColor;
+
+  box-shadow: 0 0 1.2rem #ff0606;
+
+  &.off {
+    box-shadow: none;
+    color: #0000004a;
+  }
 }
 
 .f {
